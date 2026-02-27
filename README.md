@@ -19,6 +19,7 @@ Currently verifying **15 master recipes** across 10 global cuisines — from Bee
 Whether you're building an AI cooking assistant, a smart kitchen platform, or an agentic food-tech product — integrate Guardian to make your outputs trustworthy:
 
 *   **[Python SDK & Examples](https://github.com/kaimeilabs/guardian-api-docs)** — Connect your agent in minutes
+*   **[Smithery.ai Listing](https://smithery.ai/servers/kaimeilabs/guardian-engine)** — One-click installation for Claude & Cursor
 *   **[Available Dishes](https://github.com/kaimeilabs/guardian-api-docs#-available-verification-targets)** — Browse the full recipe catalog
 *   **API Endpoint**: `https://api.kaimeilabs.dev/mcp` (Streamable HTTP / MCP)
 

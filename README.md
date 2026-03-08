@@ -2,15 +2,15 @@
 
 > **Authentic AI Infrastructure for Culinary Science.**
 
-We build **symbolic verification engines for neuro-symbolic AI pipelines** — ensuring AI-generated cooking instructions are physically correct, chemically sound, and culturally authentic. LLMs generate, we verify.
+We build **verification engines for AI-generated content** — ensuring AI-generated cooking instructions are physically correct, chemically sound, and culturally authentic. LLMs generate, we verify.
 
 ## The Guardian Engine
 
 When AI agents generate recipes, they hallucinate. They set ovens to impossible temperatures, skip the Maillard reaction, substitute ingredients that break emulsions, and produce dishes that fail in the real kitchen.
 
-**Guardian Engine catches these errors before they reach the pan.** It models each recipe as a directed acyclic graph (DAG) of culinary state transformations — verifying temperatures, durations, techniques, and ingredient interactions against curated master recipes from professional kitchens. The result: a strict authenticity and physics verification score (0–100%).
+**Guardian Engine catches these errors before they reach the pan.** It verifies each recipe against curated master recipes from professional kitchens — checking temperatures, durations, techniques, and ingredient correctness. The result: a strict authenticity and verification score.
 
-Currently verifying **15 master recipes** across 10 global cuisines — from Beef Rendang to Crème Brûlée — with new dishes added regularly.
+Currently verifying **17 master recipes** across 11 global cuisines — from Beef Rendang to Crème Brûlée — with new dishes added regularly.
 
 ---
 

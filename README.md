@@ -10,7 +10,7 @@ When AI agents generate recipes, they hallucinate. They set ovens to impossible 
 
 **Guardian Engine catches these errors before they reach the pan.** It verifies each recipe against curated master recipes from professional kitchens — checking temperatures, durations, techniques, and ingredient correctness. The result: a strict authenticity and verification score.
 
-Currently verifying **17 master recipes** across 11 global cuisines — from Beef Rendang to Crème Brûlée — with new dishes added regularly.
+Currently verifying **20 master recipes** across 12 global cuisines — from Beef Rendang to Beef Bourguignon — with new dishes added regularly.
 
 ---
 

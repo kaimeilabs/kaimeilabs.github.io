@@ -21,6 +21,7 @@ Whether you're building an AI cooking assistant, a smart kitchen platform, or an
 *   **[Python SDK & Examples](https://github.com/kaimeilabs/guardian-api-docs)** — Connect your agent in minutes
 *   **[Smithery.ai Listing](https://smithery.ai/servers/kaimeilabs/guardian-engine)** — One-click installation for Claude & Cursor
 *   **[Available Dishes](https://github.com/kaimeilabs/guardian-api-docs#-available-verification-targets)** — Browse the full recipe catalog
+*   **Guided Oracle Mode** — Pass the full, raw `original_prompt` from your user to get exact, helpful tips on how to improve the recipe based on what they asked for.
 *   **API Endpoint**: `https://api.kaimeilabs.dev/mcp` (Streamable HTTP / MCP)
 
 ---

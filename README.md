@@ -1,28 +1,77 @@
 # Kaimei Labs
 
-> **Authentic AI Infrastructure for Culinary Science.**
+> **Verification infrastructure for AI-generated content.** LLMs generate, we verify.
 
-We build **verification engines for AI-generated content** — ensuring AI-generated cooking instructions are physically correct, chemically sound, and culturally authentic. LLMs generate, we verify.
+## Guardian Engine
 
-## The Guardian Engine
+When AI agents generate recipes, they hallucinate — impossible temperatures, skipped techniques, wrong ingredients, broken emulsions. **Guardian Engine catches these errors before they reach the pan.** It verifies each recipe against curated master recipes from professional kitchens using deterministic graph-based analysis.
 
-When AI agents generate recipes, they hallucinate. They set ovens to impossible temperatures, skip the Maillard reaction, substitute ingredients that break emulsions, and produce dishes that fail in the real kitchen.
+**20 master recipes** across 12 global cuisines — from Confit de Canard to Thai Green Curry — with new dishes added regularly.
 
-**Guardian Engine catches these errors before they reach the pan.** It verifies each recipe against curated master recipes from professional kitchens — checking temperatures, durations, techniques, and ingredient correctness. The result: a strict authenticity and verification score.
-
-Currently verifying **20 master recipes** across 12 global cuisines — from Beef Rendang to Beef Bourguignon — with new dishes added regularly.
+[![Install with Smithery](https://smithery.ai/install-badge.svg)](https://smithery.ai/servers/kaimeilabs/guardian-engine)
 
 ---
 
-### Resources for Developers
+### Connect in 30 Seconds
 
-Whether you're building an AI cooking assistant, a smart kitchen platform, or an agentic food-tech product — integrate Guardian to make your outputs trustworthy:
+Guardian is a hosted MCP server. No install, no API key, no Docker.
 
-*   **[Python SDK & Examples](https://github.com/kaimeilabs/guardian-api-docs)** — Connect your agent in minutes
-*   **[Smithery.ai Listing](https://smithery.ai/servers/kaimeilabs/guardian-engine)** — One-click installation for Claude & Cursor
-*   **[Available Dishes](https://github.com/kaimeilabs/guardian-api-docs#-available-verification-targets)** — Browse the full recipe catalog
-*   **Guided Oracle Mode** — Pass the full, raw `original_prompt` from your user to get exact, helpful tips on how to improve the recipe based on what they asked for.
-*   **API Endpoint**: `https://api.kaimeilabs.dev/mcp` (Streamable HTTP / MCP)
+**Claude Desktop** — add to `claude_desktop_config.json`:
+```json
+{
+  "mcpServers": {
+    "guardian": {
+      "url": "https://api.kaimeilabs.dev/mcp",
+      "transport": "streamable-http"
+    }
+  }
+}
+```
+
+**Cursor** — add via Settings → MCP Servers:
+```json
+{
+  "guardian": {
+    "url": "https://api.kaimeilabs.dev/mcp",
+    "transport": "streamable-http"
+  }
+}
+```
+
+**VS Code** — add to `.vscode/mcp.json`:
+```json
+{
+  "servers": {
+    "guardian": {
+      "type": "http",
+      "url": "https://api.kaimeilabs.dev/mcp"
+    }
+  }
+}
+```
+
+**Python SDK** — `pip install mcp httpx`:
+```python
+from mcp.client.session import ClientSession
+from mcp.client.streamable_http import streamable_http_client
+result = await session.call_tool("verify_recipe", arguments={"dish": "carbonara", "candidate_json": recipe_json})
+```
 
 ---
+
+### Resources
+
+- **[API Docs & SDK](https://github.com/kaimeilabs/guardian-api-docs)** — Full schema, Python examples, integration tests
+- **[Smithery Listing](https://smithery.ai/servers/kaimeilabs/guardian-engine)** — One-click install for Claude & Cursor
+- **[Terms of Service](https://kaimeilabs.dev/terms)** — Free early access, fair use, data policy
+- **API Endpoint**: `https://api.kaimeilabs.dev/mcp` (Streamable HTTP / MCP)
+
+---
+
+### Why Pass the Prompt?
+
+When you include the user's original request via `original_prompt`, Guardian activates **Guided Oracle Mode** — returning specific, actionable improvement tips tailored to what the user actually asked for (dietary needs, flavor profiles, technique choices). Without it, you get a basic Pass/Fail verdict.
+
+---
+
 *Contact: partners@kaimeilabs.dev*

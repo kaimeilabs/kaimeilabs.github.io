@@ -2,9 +2,9 @@ theme: jekyll-theme-cayman
 
 title: Kaimei Labs
 description: >-
-  Verification infrastructure for AI-generated content.
+  Deterministic verification infrastructure for AI agent outputs.
   Guardian Engine catches hallucinated recipes before they reach the pan.
-  LLMs generate, Guardian verifies.
+  Recipes first — any procedural domain next.
 url: "https://kaimeilabs.dev"
 
 # SEO

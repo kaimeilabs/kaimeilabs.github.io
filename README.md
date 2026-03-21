@@ -1,12 +1,12 @@
 # Kaimei Labs
 
-> **Verification infrastructure for AI-generated content.** LLMs generate, we verify.
+> **Deterministic verification infrastructure for AI agent outputs.** LLMs generate, we verify. Recipes are the first vertical — the same approach generalises to any procedural domain where correctness matters.
 
 ## Guardian Engine
 
-When AI agents generate recipes, they hallucinate — impossible temperatures, skipped techniques, wrong ingredients, broken emulsions. **Guardian Engine catches these errors before they reach the pan.** It verifies each recipe against curated master recipes from professional kitchens using deterministic graph-based analysis.
+When AI agents generate recipes, they hallucinate — impossible temperatures, skipped techniques, wrong ingredients, broken emulsions. **Guardian Engine catches these errors before they reach the pan.** It verifies each recipe against curated master recipes from professional kitchens using deterministic analysis.
 
-**20 master recipes** across 12 global cuisines — from Confit de Canard to Thai Green Curry — with new dishes added regularly.
+**25 master recipes** across 13 global cuisines — from Confit de Canard to Tonkotsu Ramen — with new dishes added regularly.
 
 [![Install with Smithery](https://smithery.ai/install-badge.svg)](https://smithery.ai/servers/kaimeilabs/guardian-engine)
 
@@ -59,6 +59,34 @@ result = await session.call_tool("verify_recipe", arguments={"dish": "carbonara"
 
 ---
 
+### What Does a Verification Report Look Like?
+
+Here's the response structure when Guardian catches authenticity issues in an AI-generated recipe:
+
+```json
+{
+  "verdict": "FAILED",
+  "authenticity_score": 72.4,
+  "findings": [
+    {
+      "issue": "MISSING_REQUIRED_INGREDIENT",
+      "severity": "CRITICAL",
+      "justification": "This ingredient provides a signature flavour component essential to the dish's identity."
+    },
+    {
+      "issue": "WRONG_COOKING_MEDIUM",
+      "severity": "WARNING",
+      "justification": "Cooking medium fundamentally affects texture and flavour."
+    }
+  ],
+  "allergen_warnings": ["milk", "eggs"]
+}
+```
+
+Each finding includes a `severity` and a `justification` grounded in culinary science — so the agent fixes only what's wrong instead of guessing.
+
+---
+
 ### Resources
 
 - **[API Docs & SDK](https://github.com/kaimeilabs/guardian-api-docs)** — Full schema, Python examples, integration tests
@@ -74,4 +102,4 @@ When you include the user's original request via `original_prompt`, Guardian act
 
 ---
 
-*Contact: partners@kaimeilabs.dev*
+*Building an AI cooking assistant, smart kitchen platform, or agentic food-tech product? Contact: partners@kaimeilabs.dev*

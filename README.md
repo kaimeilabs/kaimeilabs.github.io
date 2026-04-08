@@ -6,7 +6,7 @@
 
 When AI agents generate recipes, they hallucinate — impossible temperatures, skipped techniques, wrong ingredients, broken emulsions. **Guardian Engine catches these errors before they reach the pan.** It verifies each recipe against curated master recipes from professional kitchens using deterministic analysis.
 
-**25 master recipes** across 13 global cuisines — from Confit de Canard to Tonkotsu Ramen — with new dishes added regularly.
+**51 master recipes** across 4 continents — from Confit de Canard to Laksa — with new dishes added regularly.
 
 [![Install with Smithery](https://smithery.ai/install-badge.svg)](https://smithery.ai/servers/kaimeilabs/guardian-engine)
 

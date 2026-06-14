@@ -58,6 +58,8 @@ We will provide at least 30 days' notice before transitioning to paid access or 
 
 **Verification results, including any safety-related findings (such as cooking temperature or allergen warnings), are automated and informational only. They should not be relied upon as professional food safety, health, or culinary advice.**
 
+**Allergens specifically: a `PASSED` verdict is NOT a guarantee that a recipe or food is free of any allergen or safe for any individual. Allergen detection is derived from an automated knowledge base that may be incomplete or incorrect. You must never rely on the Service to determine whether a food is safe for a person with a food allergy or intolerance — always verify against the actual ingredient and product labelling and consult a qualified professional.**
+
 ## 7. Limitation of Liability
 
 **TO THE MAXIMUM EXTENT PERMITTED BY LAW, KAIMEI LABS SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING FROM YOUR USE OF THE SERVICE, INCLUDING BUT NOT LIMITED TO DAMAGES FOR LOSS OF PROFITS, DATA, OR GOODWILL.**

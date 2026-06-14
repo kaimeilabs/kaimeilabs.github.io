@@ -66,7 +66,7 @@ Here's the response structure when Guardian catches authenticity issues in an AI
 ```json
 {
   "verdict": "FAILED",
-  "authenticity_score": 72.4,
+  "response_format_version": "v3",
   "findings": [
     {
       "issue": "MISSING_REQUIRED_INGREDIENT",

@@ -6,7 +6,7 @@
 
 When AI agents generate recipes, they hallucinate — impossible temperatures, skipped techniques, wrong ingredients, broken emulsions. **Guardian Engine catches these errors before they reach the pan.** It verifies each recipe against curated master recipes from professional kitchens using deterministic analysis.
 
-**51 master recipes** across 4 continents — from Confit de Canard to Laksa — with new dishes added regularly.
+**161 master recipes** across 5 regions — from Confit de Canard to Bulgogi to Jerk Chicken — with new dishes added regularly.
 
 [![Install with Smithery](https://smithery.ai/install-badge.svg)](https://smithery.ai/servers/kaimeilabs/guardian-engine)
 
@@ -98,7 +98,7 @@ Each finding includes a `severity` and a `justification` grounded in culinary sc
 
 ### Why Pass the Prompt?
 
-When you include the user's original request via `original_prompt`, Guardian activates **Guided Oracle Mode** — returning specific, actionable improvement tips tailored to what the user actually asked for (dietary needs, flavor profiles, technique choices). Without it, you get a basic Pass/Fail verdict.
+When you include the user's original request via `original_prompt`, Guardian personalises findings to the user's stated dietary needs and flavour preferences, and activates audience-sensitive safety checks (e.g. flagging honey in recipes for infants, raw egg for pregnant users). Without it, Guardian still returns the full verdict and all findings.
 
 ---
 

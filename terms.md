@@ -5,7 +5,7 @@ title: Terms of Service
 
 # Terms of Service
 
-*Effective: February 27, 2026*
+*Effective: July 19, 2026 (supersedes the version of February 27, 2026 — material additions: Section 6, Food Safety, Allergen & Dietary Risk Disclaimer)*
 
 These Terms of Service ("Terms") govern your access to and use of the Guardian Engine API and related services ("Service") provided by **Kaimei Labs** ("we", "us", or "our"). By using the Service, you agree to these Terms. You must be at least 18 years old or the age of legal majority in your jurisdiction to use this Service.
 
@@ -13,14 +13,16 @@ These Terms of Service ("Terms") govern your access to and use of the Guardian E
 
 ## 1. Service Description
 
-Guardian Engine is a deterministic recipe verification engine. It accepts candidate recipes as structured JSON and returns a verification report comparing the candidate against curated master recipes. The Service is made available via a publicly accessible MCP (Model Context Protocol) endpoint and REST API.
+Guardian Engine is a deterministic recipe verification engine. It accepts candidate recipes as structured JSON and returns a verification report comparing the candidate against a master specification — either a curated catalog master or a master specification you supply ("BYO master"). The Service also provides deterministic recipe repair (`fix_recipe`), master-independent safety checks, allergen detection against the EU FIC 1169/2011 Annex II allergen groups, and dietary-claim checks (e.g. vegan, gluten-free, halal, kosher). The Service is made available via a publicly accessible MCP (Model Context Protocol) endpoint and REST API.
+
+All verification, repair, allergen, dietary, and safety outputs of the Service (together, "Output") are automated and informational. Section 6 (Food Safety, Allergen & Dietary Risk Disclaimer) applies to all Output and forms an integral part of these Terms.
 
 ## 2. Acceptable Use
 
 You may use the Service for:
 
-- Verifying AI-generated or user-submitted recipes against our master recipe database.
-- Integrating verification into your AI agents, applications, or platforms.
+- Verifying AI-generated or user-submitted recipes against our master recipe database or your own master specifications.
+- Integrating verification, repair, allergen, and dietary checks into your AI agents, applications, or platforms.
 - Research, evaluation, and educational purposes.
 
 You may **not**:
@@ -29,6 +31,8 @@ You may **not**:
 - Submit excessively large or malicious payloads designed to degrade the Service.
 - Resell raw verification results as a standalone competing product.
 - Use the Service in any way that violates applicable laws or regulations.
+- Use the Service, or represent the Service to end users, as a medical, clinical, or dietetic device or service, or as a sole or authoritative safeguard for persons with food allergies, intolerances, or medical dietary requirements.
+- Present Output to end users as a certification of allergen-free status, dietary or religious compliance (e.g. halal or kosher), or regulatory compliance.
 
 ## 3. Early Access & Fair Use
 
@@ -40,55 +44,75 @@ We will provide at least 30 days' notice before transitioning to paid access or 
 
 - **No PII collected** — we do not store user names, email addresses, or API keys in our application logs. Underlying cloud infrastructure may temporarily process IP addresses for security and routing purposes. You agree not to include personally identifiable information (PII) within recipe payloads.
 
-- **Data for Compute Exchange** — The free early-access Service is provided in exchange for usage data. By submitting candidate recipes, you grant Kaimei Labs a perpetual, irrevocable, worldwide, royalty-free license to use, store, modify, aggregate, distribute, and sublicense the submitted content to train our models, improve the Service, and create derived datasets.
+- **Data for Compute Exchange** — The free early-access Service is provided in exchange for usage data. By submitting content to the Service (including candidate recipes, prompts, and user-supplied master specifications), you grant Kaimei Labs a perpetual, irrevocable, worldwide, royalty-free license to use, store, modify, aggregate, distribute, and sublicense the submitted content to train our models, improve the Service, and create derived datasets.
 
 - **Anonymization** — We will not publish or share your raw submitted recipes with third parties in a way that identifies you or your application. Any external datafeeds or datasets we produce will be anonymized, aggregated, or transformed into Reinforcement Learning (RL) feedback data.
 
 ## 5. Intellectual Property & Derived Data
 
-- **Your Content**: You retain all intellectual property rights to your original candidate recipes and application code.
+- **Your Content**: You retain all intellectual property rights to your original candidate recipes, user-supplied master specifications, and application code.
 
 - **Our Engine**: The Guardian Engine source code, master recipes, knowledge base, and public SDKs (unless otherwise licensed via MIT) remain the sole property of Kaimei Labs.
 
 - **Derived Data**: Kaimei Labs owns all rights, title, and interest in and to any telemetry, metadata, verification reports, and aggregated or derived datasets (including RLDF datafeeds) generated by your use of the Service.
 
-## 6. Disclaimer of Warranties
+## 6. Food Safety, Allergen & Dietary Risk Disclaimer; Assumption of Risk
+
+**This section applies to every Output of the Service — verification verdicts, findings, patches, repaired recipes, allergen warnings, safety checks, and dietary-claim results — regardless of which tool or endpoint produced it. Read it carefully: food preparation and consumption carry inherent risks, including serious injury, illness, allergic reaction, and death.**
+
+- **The Service is informational only.** Output is generated by automated comparison against knowledge bases and rule sets that may be incomplete, outdated, or incorrect. Output is **not** food-safety, medical, nutritional, dietetic, or regulatory-compliance advice, and no Output creates a professional-client relationship of any kind.
+
+- **Allergens.** A `PASSED` verdict, an empty allergen list, or any other Output is **NOT** a guarantee that a recipe, ingredient, or food is free of any allergen or safe for any individual. Allergen detection operates on the ingredient names you submit: it cannot see cross-contamination, processing aids, "may contain" traces, mislabelled or composite products, or ingredients omitted from the payload. **You must never rely on the Service to determine whether a food is safe for a person with a food allergy or intolerance.** Always verify against the actual ingredient and product labelling and consult a qualified professional.
+
+- **Dietary and religious claims.** Dietary-claim checks (including vegan, vegetarian, gluten-free, dairy-free, nut-free, halal, and kosher) are automated ingredient-level screens. They are **not** certifications and are no substitute for verification by a recognised certification body or religious authority. Halal and kosher status in particular depends on sourcing, slaughter, processing, and handling that the Service cannot observe.
+
+- **Cooking-safety findings.** Temperature, duration, and technique findings are informational and must not replace official guidance from your food-safety authority (e.g. USDA, EFSA, EU regulations, or local law). Actual pathogen destruction depends on variables — food mass, equipment, altitude, starting temperature — that the Service cannot control or observe.
+
+- **Automatically repaired recipes.** Recipes returned by repair functionality (e.g. `fix_recipe`) are mechanical transformations of your input. They may still be unsafe, incomplete, or fail verification, and allergen findings are never auto-fixed. A repaired recipe must be reviewed by a qualified human before it is cooked, served, sold, or published.
+
+- **User-supplied master specifications.** When you verify against your own master specification (BYO master), the verdict only reflects conformance to **your** specification. You are solely responsible for the accuracy, safety, and legality of master specifications you supply; an error in your specification will propagate into every verdict computed against it.
+
+- **Regulatory compliance.** Output may support, but does not by itself constitute or guarantee, compliance with any law or regulation, including food-information and labelling law (e.g. EU Regulation 1169/2011). You remain solely responsible for your own regulatory compliance, including allergen labelling of any food you produce or sell.
+
+- **Your responsibility to end users.** If you integrate the Service into a product, you are responsible for presenting Output to your end users with appropriate warnings consistent with this section, and for not representing Output as a guarantee or certification.
+
+- **Assumption of risk.** To the maximum extent permitted by law, you assume all risk arising from the preparation, consumption, sale, or distribution of any food made in reliance on Output.
+
+## 7. Disclaimer of Warranties
 
 **THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.** We do not guarantee that the Service will be uninterrupted, error-free, or that verification results are suitable for any particular purpose.
 
-**Verification results, including any safety-related findings (such as cooking temperature or allergen warnings), are automated and informational only. They should not be relied upon as professional food safety, health, or culinary advice.**
+References to "deterministic", "replayable", or "exhaustive" verification describe the reproducibility of the engine's computation relative to its own knowledge base and rule set — they are **not** a warranty that any Output is correct, complete, or safe to rely upon. Section 6 applies to all safety-related, allergen-related, and dietary-related Output.
 
-**Allergens specifically: a `PASSED` verdict is NOT a guarantee that a recipe or food is free of any allergen or safe for any individual. Allergen detection is derived from an automated knowledge base that may be incomplete or incorrect. You must never rely on the Service to determine whether a food is safe for a person with a food allergy or intolerance — always verify against the actual ingredient and product labelling and consult a qualified professional.**
-
-## 7. Limitation of Liability
+## 8. Limitation of Liability
 
 **TO THE MAXIMUM EXTENT PERMITTED BY LAW, KAIMEI LABS SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING FROM YOUR USE OF THE SERVICE, INCLUDING BUT NOT LIMITED TO DAMAGES FOR LOSS OF PROFITS, DATA, OR GOODWILL.**
 
 In no event shall our total aggregate liability to you for all claims arising out of or relating to these Terms exceed fifty euros (€50) or the total amount you paid us to use the Service in the preceding 12 months, whichever is greater.
 
-## 8. Indemnification
+## 9. Indemnification
 
-You agree to indemnify, defend, and hold harmless Kaimei Labs, its officers, directors, and agents from any claims, damages, losses, liabilities, and expenses (including reasonable legal fees) arising out of or related to your use of the Service, your violation of these Terms, or any third-party claims resulting from your integration of the Service into your products or applications.
+You agree to indemnify, defend, and hold harmless Kaimei Labs, its officers, directors, and agents from any claims, damages, losses, liabilities, and expenses (including reasonable legal fees) arising out of or related to your use of the Service, your violation of these Terms, any food you or your users prepare, serve, sell, or distribute in reliance on Output, or any third-party claims resulting from your integration of the Service into your products or applications.
 
-## 9. Termination
+## 10. Termination
 
 We reserve the right to suspend or terminate your access to the Service at our sole discretion, without prior notice, for conduct that we determine violates these Terms or is harmful to the Service, other users, or third parties.
 
-## 10. Governing Law
+## 11. Governing Law
 
 These Terms are governed by and construed in accordance with the laws of the Netherlands, without regard to its conflict-of-law provisions. Any disputes arising from or relating to these Terms or the Service shall be subject to the exclusive jurisdiction of the competent courts of the Netherlands.
 
-## 11. Changes to Terms
+## 12. Changes to Terms
 
 We may update these Terms at any time. Material changes will be communicated via this page and, where possible, through our developer documentation. Continued use of the Service after changes are posted constitutes acceptance of the updated Terms.
 
-## 12. Contact
+## 13. Contact
 
 Questions about these Terms? Reach us at **partners@kaimeilabs.dev**. We aim to respond within 5 business days.
 
-## 13. Survival
+## 14. Survival
 
-Sections 4 (Data, Privacy & Usage Rights), 5 (Intellectual Property & Derived Data), 6 (Disclaimer of Warranties), 7 (Limitation of Liability), 8 (Indemnification), and 10 (Governing Law) shall survive any termination or expiration of these Terms.
+Sections 4 (Data, Privacy & Usage Rights), 5 (Intellectual Property & Derived Data), 6 (Food Safety, Allergen & Dietary Risk Disclaimer; Assumption of Risk), 7 (Disclaimer of Warranties), 8 (Limitation of Liability), 9 (Indemnification), and 11 (Governing Law) shall survive any termination or expiration of these Terms.
 
 ---
 
